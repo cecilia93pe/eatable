@@ -1,6 +1,5 @@
 <div class="topbar">
-  <i class="fa-solid fa-angle-left"
-  routerLink="/dish"></i>
+  <i class="fa-solid fa-angle-left" routerLink="/dish"></i>
   <p>Checkout</p>
   <p class="empty">x</p>
 </div>
@@ -14,9 +13,26 @@
 </div>
 
 <div class="checkoutContainer">
-  <p contenteditable="true">{{user.name  || 'Nombre'}}</p>
-  <p contenteditable="true" class="middle">{{user.address || 'Direccion'}} </p>
-  <p contenteditable="true">{{user.phone || 'Celular'}}</p>
+  <form>
+    <input
+      name="name"
+      [(ngModel)]="user.name"
+      [disabled]="!isEditable"
+      [value]="user.name"
+    />
+    <input
+      name="phone"
+      [(ngModel)]="user.phone"
+      [disabled]="!isEditable"
+      [value]="user.phone"
+    />
+    <input
+      name="address"
+      [(ngModel)]="user.address"
+      [disabled]="!isEditable"
+      [value]="user.address"
+    />
+  </form>
 </div>
 
 <div class="totalContainer">
@@ -25,8 +41,6 @@
 </div>
 
 <div class="completeContainer">
-  <button
-  class="btn-cart"
-  (click)="handleClickOrder()">Complete Order</button>
+  <button class="btn-cart" (click)="handleClickOrder()">Complete Order</button>
 </div>
 <app-navbar></app-navbar>

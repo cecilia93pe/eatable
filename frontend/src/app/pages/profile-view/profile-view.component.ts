@@ -56,25 +56,6 @@ export class ProfileViewComponent {
       });
       this.hidden = false;
     });
-    // this.authService.getUser()
-
-    // console.log(sessionStorage)
-
-    //   const data = {
-    //   name: 'John Doe',
-    //   address: 'asdasdasdas',
-    //   phone: '930232945'
-    // };
-
-    // this.authService.updateData(data);
-
-    // console.log(this.user)
-    // this.authService.getToken()
-    // this.authService.update(
-    //   "joseph",
-    //   "930232945",
-    //   "asdasdasd",
-    //   this.user.token)
   };
 
   // ngOnInit(){

@@ -8,15 +8,14 @@
   <app-history-card
     *ngFor="let order of orderList"
     [date]="order.created_at"
-    address="{{ order.delivery_address }}"
+    [address]="order.delivery_address"
     [order]="order"
     [total]="order.total"
   ></app-history-card>
-  <div class="no-results-founded" *ngIf="orderList.length===0">
+  <div class="no-results-founded" *ngIf="orderList.length === 0">
     <i class="fa-solid fa-calendar-days"></i>
     <p>No products found</p>
   </div>
 </div>
-
 
 <app-navbar></app-navbar>

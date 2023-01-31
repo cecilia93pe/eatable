@@ -28,16 +28,16 @@ export class AuthService {
     this.http.post(`${this.apiUri}/login`, { email, password }).subscribe({
       next: (data: any) => {
         sessionStorage.setItem('token', data.token);
-          this.getUser(data.id).subscribe((user) => {
-            console.log(user, 'user:::::::::::::::::')
-            this.currentUser = user;
-            console.log(this.currentUser);
+        this.getUser(data.id).subscribe((user) => {
+          console.log(user, 'user:::::::::::::::::');
+          this.currentUser = user;
+          console.log(this.currentUser);
 
-            sessionStorage.setItem('user', JSON.stringify(user));
-            sessionStorage.setItem('cartAddress', JSON.stringify(user.address));
+          sessionStorage.setItem('user', JSON.stringify(user));
+          sessionStorage.setItem('cartAddress', JSON.stringify(user.address));
 
-            this.router.navigate(['/dish']);
-          });
+          this.router.navigate(['/dish']);
+        });
       },
       error: (err: any) => {
         console.log(err.error);
@@ -49,7 +49,7 @@ export class AuthService {
     console.log('sign up ');
     this.http.post(`${this.apiUri}/users`, { email, password }).subscribe({
       next: (data: any) => {
-        this.login(email,password)
+        this.login(email, password);
         /*if (data.token) {
           console.log(data);
           sessionStorage.setItem('token', data.token);
@@ -69,12 +69,7 @@ export class AuthService {
   }
 
   updateData(data: any, id: string) {
-
-      return this.http
-        .put(
-          `${this.apiUri}/profile/${id}`,
-          data
-        )
+    return this.http.put(`${this.apiUri}/profile/${id}`, data);
   }
 
   isLogged(): boolean {
@@ -86,5 +81,13 @@ export class AuthService {
 
   getUser(id: string) {
     return this.http.get<User>(`${this.apiUri}/profile/${id}`);
+  }
+
+  updateUser(name: string, phone: number, address: string) {
+    return this.http.patch<User>(`${this.apiUri}/profile`, {
+      name,
+      phone,
+      address,
+    });
   }
 }

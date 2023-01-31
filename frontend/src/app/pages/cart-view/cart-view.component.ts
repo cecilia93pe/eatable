@@ -38,7 +38,7 @@ export class CartViewComponent implements OnInit {
 
   incrementQuantity(dish: Dish) {
     if (dish.quantity) {
-      dish.quantity!++;
+      dish.quantity++;
     }
     this.cartService.updateCart(this.cartList);
     this.total = this.cartService.getTotal();
