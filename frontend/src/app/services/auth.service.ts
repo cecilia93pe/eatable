@@ -28,7 +28,7 @@ export class AuthService {
     this.http.post(`${this.apiUri}/login`, { email, password }).subscribe({
       next: (data: any) => {
         if (data.token) {
-          this.getUser(data.token, data.id).subscribe((user) => {
+          this.getUser(data.id).subscribe((user) => {
             this.currentUser = user;
             console.log(this.currentUser);
 
@@ -50,11 +50,12 @@ export class AuthService {
     console.log('sign up ');
     this.http.post(`${this.apiUri}/users`, { email, password }).subscribe({
       next: (data: any) => {
-        if (data.token) {
+        this.login(email,password)
+        /*if (data.token) {
           console.log(data);
           sessionStorage.setItem('token', data.token);
           this.router.navigate(['/dish']);
-        }
+        }*/
       },
       error: (err: any) => {
         console.log(err.error);
@@ -68,31 +69,13 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  updateData(data: any) {
-    const token = sessionStorage.getItem('token');
-    if (token) {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: token,
-        }),
-      };
+  updateData(data: any, id: string) {
 
-      this.http
+      return this.http
         .put(
-          `${this.apiUri}/profile/${this.currentUser._id}`,
-          data,
-          httpOptions
+          `${this.apiUri}/profile/${id}`,
+          data
         )
-        .subscribe({
-          next: (res: any) => {
-            console.log(res);
-          },
-          error: (err: any) => {
-            console.log(err.error);
-          },
-        });
-    }
   }
 
   isLogged(): boolean {
@@ -102,14 +85,7 @@ export class AuthService {
     return false;
   }
 
-  getUser(token: string, id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: token,
-      }),
-    };
-
-    return this.http.get<User>(`${this.apiUri}/profile/${id}`, httpOptions);
+  getUser(id: string) {
+    return this.http.get<User>(`${this.apiUri}/profile/${id}`);
   }
 }
