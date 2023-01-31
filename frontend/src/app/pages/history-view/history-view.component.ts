@@ -23,12 +23,14 @@ export class HistoryViewComponent implements OnInit {
     private orderService: OrderService,
     private dishService: DishService
   ) {
-    this.user = this.authService.currentUser;
+    this.user = JSON.parse(sessionStorage.getItem('user')!) || {};
   }
 
   ngOnInit() {
     this.total = this.cartService.getTotal();
+    console.log('hol');
     this.orderService.getAll(this.user._id).subscribe((res: any) => {
+      console.log('orderService');
       const updateOrderList = res.map((order: any) => {
         const updatedOrder = { ...order };
         updatedOrder.items = [];

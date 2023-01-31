@@ -38,8 +38,8 @@
         </div>
       </div>
       <div class="button-cont">
-        <button *ngIf="buttonItem" (click)="onLogin()">Login</button>
-        <button *ngIf="!buttonItem" (click)="onSingUp()">Sing Up</button>
+        <button *ngIf="buttonItem !== 'Sing-Up'" (click)="onLogin()">Login</button>
+        <button *ngIf="buttonItem !== 'Login'" (click)="onSingUp()">Sing Up</button>
       </div>
     </form>
   </div>

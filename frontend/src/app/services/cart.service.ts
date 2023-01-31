@@ -40,6 +40,6 @@ export class CartService {
 
   getTotal(){
     let cartItems = JSON.parse(localStorage.getItem("cart")!)
-    return cartItems.reduce((acc: number, cur: Dish) => acc + (cur.price * (cur.quantity || 0)), 0)
+    return cartItems?.reduce((acc: number, cur: Dish) => acc + (cur.price * (cur.quantity || 0)), 0)
   }
 }

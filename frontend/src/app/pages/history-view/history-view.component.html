@@ -12,6 +12,11 @@
     [order]="order"
     [total]="order.total"
   ></app-history-card>
+  <div class="no-results-founded" *ngIf="orderList.length===0">
+    <i class="fa-solid fa-calendar-days"></i>
+    <p>No products found</p>
+  </div>
 </div>
+
 
 <app-navbar></app-navbar>

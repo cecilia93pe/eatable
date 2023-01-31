@@ -14,9 +14,9 @@
 </div>
 
 <div class="checkoutContainer">
-  <p contenteditable="true">{{user.name}}</p>
-  <p contenteditable="true" class="middle">{{user.address}}</p>
-  <p contenteditable="true">{{user.phone}}</p>
+  <p contenteditable="true">{{user.name  || 'Nombre'}}</p>
+  <p contenteditable="true" class="middle">{{user.address || 'Direccion'}} </p>
+  <p contenteditable="true">{{user.phone || 'Celular'}}</p>
 </div>
 
 <div class="totalContainer">

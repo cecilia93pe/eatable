@@ -27,32 +27,32 @@
   <p>Update personal details</p>
 </div>
 
-<div class="profileContainer" *ngIf="hidden">
+<form class="profileContainer" *ngIf="hidden" [formGroup]="profileForm">
   <div class="field">
     <label>Name</label>
     <div>
-      <input type="text" placeholder="{{ user.name }}" />
+      <input type="text" placeholder="{{ user.name }}" formControlName="name"  />
     </div>
   </div>
   <div class="field">
     <label>Email</label>
     <div>
-      <input type="text" placeholder="{{ user.email }}" />
+      <input type="text" placeholder="{{ user.email }}" disabled/>
     </div>
   </div>
   <div class="field">
     <label>Phone</label>
     <div>
-      <input type="text" placeholder="{{ user.phone }}" />
+      <input type="text" placeholder="{{ user.phone }}" formControlName="phone"   />
     </div>
   </div>
   <div class="field">
     <label>Address</label>
     <div>
-      <input type="text" placeholder="{{ user.address }}" />
+      <input type="text" placeholder="{{ user.address }}" formControlName="address"   />
     </div>
   </div>
-</div>
+</form>
 
 <div class="logoutContainer" *ngIf="hidden">
   <button (click)="update()">Update</button>

@@ -17,6 +17,7 @@ export class CheckoutViewComponent implements OnInit {
   user: any = null
   cartAddress: string = ''
   cartList: Array<any> = []
+  userStorage: any = null
 
   constructor(
     private cartService: CartService,
@@ -24,8 +25,12 @@ export class CheckoutViewComponent implements OnInit {
     private orderService: OrderService,
     private router: Router
   ){
-    this.user = this.authService.currentUser
-    this.cartAddress = JSON.parse(sessionStorage.getItem('cartAddress')!)
+    this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
+    this.authService.getUser(this.userStorage._id).subscribe((res) =>{
+      console.log(res)
+      this.user = res
+     })
+    this.cartAddress = sessionStorage.getItem('cartAddress')!
     this.cartList = JSON.parse(localStorage.getItem('cart')!)
   }
 
@@ -35,7 +40,12 @@ export class CheckoutViewComponent implements OnInit {
 
   handleClickChange = () => {
     console.log(this.user)
-    sessionStorage.setItem('cartAddress', this.cartAddress)
+    if (this.user.name && this.user.phone) {
+
+      sessionStorage.setItem('cartAddress', this.cartAddress)
+    }else {
+      this.router.navigate(['profile'])
+    }
     //event.target.attributes['contenteditable'].value = true
   }
 
