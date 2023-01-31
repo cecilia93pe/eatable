@@ -10,24 +10,23 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProfileViewComponent {
   hidden: boolean = false;
-  user: any = null
-  userStorage: any = null
+  user: any = {};
+  userStorage: any = null;
 
   profileForm = new FormGroup({
     name: new FormControl(''),
     phone: new FormControl(null),
-    address: new FormControl('')
-  })
+    address: new FormControl(''),
+  });
 
   constructor(private authService: AuthService) {
     this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
 
-   this.authService.getUser(this.userStorage._id).subscribe((res) =>{
-    console.log(res)
-    this.user = res
-   })
+    this.authService.getUser(this.userStorage._id).subscribe((res) => {
+      console.log(res);
+      this.user = res;
+    });
   }
-
 
   hide = () => {
     if (this.hidden) {
@@ -41,33 +40,33 @@ export class ProfileViewComponent {
     this.authService.logout();
   };
 
-  update=()=>{
+  update = () => {
     const send = {
       name: this.profileForm.value.name,
       phone: Number(this.profileForm.value.phone),
       address: this.profileForm.value.address,
       email: this.userStorage.email,
-      password: this.userStorage.password
-    }
-    console.log(send, 'send')
+      password: this.userStorage.password,
+    };
+    console.log(send, 'send');
     this.authService.updateData(send, this.userStorage._id).subscribe((res) => {
-      this.authService.getUser(this.userStorage._id).subscribe((json) =>{
-        this.user = json
-        console.log(json)
-      })
-      this.hidden = false
-    })
+      this.authService.getUser(this.userStorage._id).subscribe((json) => {
+        this.user = json;
+        console.log(json);
+      });
+      this.hidden = false;
+    });
     // this.authService.getUser()
 
     // console.log(sessionStorage)
 
     //   const data = {
-  //   name: 'John Doe',
-  //   address: 'asdasdasdas',
-  //   phone: '930232945'
-  // };
+    //   name: 'John Doe',
+    //   address: 'asdasdasdas',
+    //   phone: '930232945'
+    // };
 
-  // this.authService.updateData(data);
+    // this.authService.updateData(data);
 
     // console.log(this.user)
     // this.authService.getToken()
