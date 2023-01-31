@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-checkout-view',
@@ -39,12 +40,22 @@ export class CheckoutViewComponent implements OnInit {
   }
 
   handleClickChange = () => {
-    this.isEditable = true;
-    console.log(this.user);
-    if (this.user.name && this.user.phone) {
-      sessionStorage.setItem('cartAddress', this.cartAddress);
+    this.isEditable = !this.isEditable;
+    if (this.isEditable) {
+      console.log(this.user);
+      if (this.user.name && this.user.phone) {
+        sessionStorage.setItem('cartAddress', this.cartAddress);
+      } else {
+        this.router.navigate(['profile']);
+      }
     } else {
-      this.router.navigate(['profile']);
+      this.authService
+        .updateData(this.user, this.userStorage._id)
+        .subscribe((res) => {
+          this.authService.getUser(this.userStorage._id).subscribe((json) => {
+            this.user = json;
+          });
+        });
     }
     //event.target.attributes['contenteditable'].value = true
   };
