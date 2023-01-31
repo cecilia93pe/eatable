@@ -93,3 +93,24 @@
   color: var(--text-black);
   font-size: 22px;
 }
+
+/* nosearch */
+
+.nosearch-cont {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.nosearch-cont i {
+  font-size: 7rem;
+  color: #0005;
+}
+
+.nosearch-cont p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}

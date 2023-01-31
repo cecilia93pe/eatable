@@ -7,12 +7,20 @@ import { Dish } from 'src/app/models/dish.model';
   styleUrls: ['./cart-view.component.css'],
 })
 export class CartViewComponent implements OnInit {
+  noSearch: boolean = true;
+
   cartList: Dish[] = [];
   total!: number;
   constructor(private cartService: CartService) {}
   ngOnInit() {
     this.cartList = this.cartService.getCartItems();
     this.total = this.cartService.getTotal();
+    console.log(this.cartList);
+    if (this.cartList.length === 0) {
+      this.noSearch = false;
+    } else {
+      this.noSearch = true;
+    }
   }
 
   reduceQuantity(dish: Dish) {
@@ -22,7 +30,7 @@ export class CartViewComponent implements OnInit {
         this.cartService.updateCart(this.cartList);
       } else {
         this.cartService.removeItemFromCart(dish._id);
-        this.cartList = this.cartService.getCartItems()
+        this.cartList = this.cartService.getCartItems();
       }
       this.total = this.cartService.getTotal();
     }

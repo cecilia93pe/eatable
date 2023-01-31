@@ -8,7 +8,7 @@
   <app-history-card
     *ngFor="let order of orderList"
     [date]="order.created_at"
-    address="{{order.delivery_address}}"
+    address="{{ order.delivery_address }}"
     [order]="order"
     [total]="order.total"
   ></app-history-card>

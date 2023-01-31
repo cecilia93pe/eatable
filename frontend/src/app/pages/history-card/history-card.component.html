@@ -1,14 +1,14 @@
 <div class="historyContainer">
-  <p>{{date}}</p>
+  <p>{{ date }}</p>
   <div class="summary">
-    <p>{{itemList.length}} items</p>
+    <p>{{ itemList.length }} items</p>
     <p style="color: #fa4a0c">{{ total | currency }}</p>
   </div>
   <div class="hiddenDetails" *ngIf="hidden">
     <p style="font-weight: bold">Order</p>
     <div class="detailsField" *ngFor="let item of itemList">
-      <p>{{item.quantity}} - {{item.name}}</p>
-      <p>{{item.quantity * item.price}}</p>
+      <p>{{ item.quantity }} - {{ item.name }}</p>
+      <p>{{ item.quantity * item.price }}</p>
     </div>
     <div class="line"></div>
     <p style="font-weight: bold">Delivery</p>

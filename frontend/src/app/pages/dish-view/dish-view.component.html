@@ -34,7 +34,10 @@
     <div class="no-result" *ngIf="!showNavbar && filteredDishes.length">
       <p class="no-result__text">Found {{ filteredDishes.length }} result</p>
     </div>
-    <div class="no-results-founded" *ngIf="filteredDishes.length===0 && search">
+    <div
+      class="no-results-founded"
+      *ngIf="filteredDishes.length === 0 && search"
+    >
       <i class="fa-solid fa-magnifying-glass"></i>
       <p>No products found</p>
     </div>
