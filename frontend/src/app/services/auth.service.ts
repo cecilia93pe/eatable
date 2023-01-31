@@ -27,18 +27,17 @@ export class AuthService {
   login(email: string, password: string) {
     this.http.post(`${this.apiUri}/login`, { email, password }).subscribe({
       next: (data: any) => {
-        if (data.token) {
+        sessionStorage.setItem('token', data.token);
           this.getUser(data.id).subscribe((user) => {
+            console.log(user, 'user:::::::::::::::::')
             this.currentUser = user;
             console.log(this.currentUser);
 
-            sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('user', JSON.stringify(user));
             sessionStorage.setItem('cartAddress', JSON.stringify(user.address));
 
             this.router.navigate(['/dish']);
           });
-        }
       },
       error: (err: any) => {
         console.log(err.error);
