@@ -1,0 +1,66 @@
+.container {
+  padding: 0 35px;
+  text-align: center;
+}
+
+.topbar {
+  height: 50px;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+}
+
+.icon-back {
+  position: absolute;
+  left: 0;
+}
+
+.btn-cart {
+  color: white;
+  border: none;
+  width: 100%;
+  height: 55px;
+  background-color: #fa4a0c;
+  border-radius: 22.5px;
+  margin-top: 25px;
+}
+
+.btn-cart:disabled {
+  background-color: #fa4b0c81;
+}
+
+.dish-image {
+  border-radius: 100%;
+  height: 230px;
+  width: 230px;
+  box-shadow: -1px 12px 15px 0px rgba(171, 170, 170, 0.65);
+}
+
+.title {
+  color: var(--text-black);
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 70px;
+}
+
+.price {
+  color: var(--color-orange);
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.subtitle {
+  color: var(--text-black);
+  font-weight: 700;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.description {
+  color: var(--text-gray);
+  text-align: left;
+  margin-top: 8px;
+}

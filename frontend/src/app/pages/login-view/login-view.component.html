@@ -1,0 +1,46 @@
+<div class="main">
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../../../assets/mainAssets/Eatable.svg" alt="logo" />
+        <img
+          src="../../../assets/mainAssets/Food for Everyone.png"
+          alt="logo"
+        />
+      </div>
+      <ul class="navigation">
+        <li (click)="buttonLog($event)" ngClass="{{buttonItem === 'Login' ? 'item--active': ''}}">
+          Login
+        </li>
+        <li (click)="buttonSing($event)" ngClass="{{buttonItem === 'Sing-Up' ? 'item--active': ''}}">
+          Sing-Up
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container2">
+    <form [formGroup]="loginForm">
+      <div class="input-cont">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            name="email"
+            formControlName="email"
+            placeholder="my_mail@mail.com"
+          />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password" formControlName="password" />
+        </div>
+      </div>
+      <div class="button-cont">
+        <button *ngIf="buttonItem" (click)="onLogin()">Login</button>
+        <button *ngIf="!buttonItem" (click)="onSingUp()">Sing Up</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="contenedor">
+  <p class="inivisiblexd">.</p>
+  <div class="fixed-cont">
+    <div class="search-cont">
+      <div class="search__item">
+        <label for="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Search"
+          [(ngModel)]="search"
+          (input)="onChange()"
+        />
+      </div>
+      <div class="search__cart">
+        <div class="cart__icon" routerLink="/cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p class="cart__number">{{ cartNumberShop.length }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showNavbar" class="navbar">
+      <ul class="navbar__list">
+        <li
+          *ngFor="let category of categories"
+          (click)="filterByCategory(category)"
+        >
+          {{ category }}
+        </li>
+      </ul>
+    </div>
+    <div class="no-result" *ngIf="!showNavbar && filteredDishes.length">
+      <p class="no-result__text">Found {{ filteredDishes.length }} result</p>
+    </div>
+    <div class="no-results-founded" *ngIf="filteredDishes.length===0 && search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>No products found</p>
+    </div>
+  </div>
+
+  <div class="dish-cont">
+    <app-dish-card
+      *ngFor="let dish of filteredDishes"
+      [productName]="dish.name"
+      [productPill]="dish.price"
+      [imgProduct]="dish.picture_url"
+      [id]="dish._id"
+    ></app-dish-card>
+  </div>
+</div>
+
+<app-navbar></app-navbar>

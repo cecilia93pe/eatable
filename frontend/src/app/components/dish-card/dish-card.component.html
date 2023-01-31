@@ -1,0 +1,9 @@
+<div class="card-cont" [routerLink]="'/dish/' + id">
+  <div class="img__cont">
+    <img [src]="imgProduct" alt="dish" />
+  </div>
+  <div class="card__text">
+    <p class="text__name">{{ productName | titlecase }}</p>
+    <p class="text__pill">{{ productPill | currency }}</p>
+  </div>
+</div>

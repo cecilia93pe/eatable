@@ -1,0 +1,32 @@
+<div class="topbar">
+  <i class="fa-solid fa-angle-left"
+  routerLink="/dish"></i>
+  <p>Checkout</p>
+  <p class="empty">x</p>
+</div>
+<div class="title">
+  <h1>Delivery</h1>
+</div>
+
+<div class="subtitle">
+  <p>Address details</p>
+  <p style="color: #fa4a0c" (click)="handleClickChange()">Change</p>
+</div>
+
+<div class="checkoutContainer">
+  <p contenteditable="true">{{user.name}}</p>
+  <p contenteditable="true" class="middle">{{user.address}}</p>
+  <p contenteditable="true">{{user.phone}}</p>
+</div>
+
+<div class="totalContainer">
+  <p>Total</p>
+  <p style="font-weight: bold">{{ total | currency }}</p>
+</div>
+
+<div class="completeContainer">
+  <button
+  class="btn-cart"
+  (click)="handleClickOrder()">Complete Order</button>
+</div>
+<app-navbar></app-navbar>

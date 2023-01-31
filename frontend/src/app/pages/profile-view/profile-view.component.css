@@ -1,0 +1,65 @@
+.topbar{
+    display: flex;
+    height: 50px;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.empty{
+    color: #F6F6F9;
+}
+.subtitle{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.profileContainer{
+    display: block;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 3rem;
+    padding: 0.5rem 0;
+}
+.profileContainer p{
+    padding: 0.5rem 0.5rem;
+    color: #8F8F91;
+}
+.historyContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin: 2rem 3rem;
+    border-radius: 15px;
+    height: 45px;
+    padding: 1rem;
+}
+.logoutContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 3rem;
+    height: 55px;
+}
+.logoutContainer button{
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #fa4a0c;
+    border-radius: 22.5px;
+}
+.profileContainer .field{
+    padding: 0.5rem 0.5rem;
+}
+.profileContainer .field label{
+    color: #8F8F91;
+}
+.profileContainer .field input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 1.5rem;
+}

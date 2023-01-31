@@ -1,0 +1,57 @@
+.topbar{
+    display: flex;
+    height: 50px;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.empty{
+    color: #F6F6F9;
+}
+.title{
+    margin: 0 3.25rem;
+    font-size: 1.5rem;
+}
+.subtitle{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 3.25rem;
+}
+.checkoutContainer{
+    display: block;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 3rem;
+    padding: 1rem;
+}
+.checkoutContainer p{
+    line-height: 30px;
+    color: black;
+}
+.middle{
+    border-top: 2.5px solid #F6F6F9;
+    border-bottom: 2.5px solid #F6F6F9;
+}
+.completeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 3rem;
+    height: 55px;
+}
+.completeContainer button{
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #fa4a0c;
+    border-radius: 22.5px;
+}
+
+.totalContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 3rem;
+}

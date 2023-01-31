@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="topbar">
+    <i routerLink="/dish" class="fa-solid fa-angle-left icon-back"></i>
+  </div>
+  <img class="dish-image" [src]="currentDish.picture_url" alt="" />
+  <h1 class="title">{{ currentDish.name }}</h1>
+  <p class="price">{{ currentDish.price | currency }}</p>
+  <h2 class="subtitle">Description</h2>
+  <p class="description">
+    {{ currentDish.description }}
+  </p>
+  <button
+    class="btn-cart"
+    [disabled]="isAddedToCart"
+    (click)="onClick()"
+    [routerLink]="'/dish'"
+  >
+    {{ cartLabel }}
+  </button>
+</div>
+<app-navbar></app-navbar>

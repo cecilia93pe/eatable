@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="topbar">
+    <i routerLink="/dish" class="fa-solid fa-angle-left icon-back"></i>
+    <p>Cart</p>
+  </div>
+  <article class="dish-card" *ngFor="let dish of cartList">
+    <img [src]="dish.picture_url" alt="" class="dish-image" />
+    <div class="dish-info">
+      <h2 class="dish-title">{{ dish.name }}</h2>
+      <p class="dish-price">
+        {{ (dish.price || 0) * (dish.quantity || 0) | currency }}
+      </p>
+    </div>
+    <div class="counter">
+      <span (click)="reduceQuantity(dish)">&minus;</span>
+      {{ dish.quantity }}
+      <span (click)="incrementQuantity(dish)">&plus;</span>
+    </div>
+  </article>
+  <div class="total">
+    <p class="total-description">Total</p>
+    <p class="total-value">{{ total | currency }}</p>
+  </div>
+  <button class="btn-cart"class="btn-cart"
+
+  [routerLink]="'/checkout'">Checkout</button>
+  
+</div>
+<app-navbar></app-navbar>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(app/styles/reset.css);
+@font-face {
+  font-family: sanspro ;
+  src: url(assets/fonts/SourceSansPro-Regular.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #F6F6F9;
+}
+body{
+  font-family: sanspro;
+}
+
+:root {
+  --color-white: #fff;
+  --color-orange: #fa4c0e;
+  --text-gray: #8b8b8d;
+  --text-black: #484849;
+  --color-gray-light: #c7c7c7;
+}

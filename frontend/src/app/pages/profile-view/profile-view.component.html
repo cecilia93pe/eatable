@@ -1,0 +1,61 @@
+<div class="topbar">
+  <i class="fa-solid fa-angle-left" routerLink="/dish"></i>
+  <p>My Profile</p>
+  <p class="empty">x</p>
+</div>
+<div class="subtitle" *ngIf="hidden == false">
+  <p>Personal Details</p>
+  <p style="color: #fa4a0c" (click)="hide()">Change</p>
+</div>
+
+<div class="profileContainer" *ngIf="hidden == false">
+  <p>{{ user.name }}</p>
+  <p>{{ user.email }}</p>
+  <p>{{ user.phone }}</p>
+  <p>{{ user.address }}</p>
+</div>
+
+<div class="historyContainer" *ngIf="hidden == false" routerLink="/history">
+  <p>History</p>
+  <i class="fa-solid fa-angle-right"></i>
+</div>
+<div class="logoutContainer" *ngIf="hidden == false" (click)="logout()">
+  <button>Logout</button>
+</div>
+
+<div class="subtitle" *ngIf="hidden">
+  <p>Update personal details</p>
+</div>
+
+<div class="profileContainer" *ngIf="hidden">
+  <div class="field">
+    <label>Name</label>
+    <div>
+      <input type="text" placeholder="{{ user.name }}" />
+    </div>
+  </div>
+  <div class="field">
+    <label>Email</label>
+    <div>
+      <input type="text" placeholder="{{ user.email }}" />
+    </div>
+  </div>
+  <div class="field">
+    <label>Phone</label>
+    <div>
+      <input type="text" placeholder="{{ user.phone }}" />
+    </div>
+  </div>
+  <div class="field">
+    <label>Address</label>
+    <div>
+      <input type="text" placeholder="{{ user.address }}" />
+    </div>
+  </div>
+</div>
+
+<div class="logoutContainer" *ngIf="hidden">
+  <button (click)="update()">Update</button>
+</div>
+
+<app-navbar></app-navbar>

@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p,
+li {
+  font-family: sans-serif;
+}
+
+.inivisiblexd {
+  opacity: 0;
+  background-color: #f5f5f8;
+}
+
+.contenedor {
+  height: 100vh;
+  background-color: #f5f5f8;
+}
+
+.fixed-cont {
+  position: fixed;
+  top: 0;
+  padding-top: 1rem;
+  width: 100%;
+  background-color: #f5f5f8;
+}
+
+.search-cont {
+  width: 100%;
+  padding: 0 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search__item {
+  display: flex;
+}
+
+.search__item input {
+  font-size: 1.2rem;
+  border: none;
+  width: 200px;
+  padding: 8px;
+  margin-left: 5px;
+  border-radius: 15px;
+}
+
+.search__item label {
+  font-size: 1.3rem;
+  display: grid;
+  place-content: center;
+}
+
+.cart__icon {
+  position: relative;
+  padding: 10px;
+}
+
+.cart__icon i {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+.cart__number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.2rem;
+  color: #2d2d2d;
+}
+
+/* navbar */
+
+.navbar {
+  width: 100%;
+}
+
+.navbar__list {
+  padding: 1rem;
+  display: flex;
+  justify-content: start;
+  overflow: scroll;
+}
+
+.navbar__list li {
+  list-style: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.navbar__list li:hover {
+  color: #f97547;
+  border-bottom: 3px solid #f97547;
+}
+
+/* result */
+.no-result {
+  display: grid;
+  place-content: center;
+  padding: 20px;
+}
+
+.no-result__text {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* dish_cards */
+
+.dish-cont {
+  width: 100%;
+  height: 78%;
+  margin-top: 120px;
+  display: grid;
+  place-content: top center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  padding: 0 30px;
+  padding-top: 20px;
+  row-gap: 30px;
+  column-gap: 15px;
+  overflow: hidden;
+  overflow: scroll;
+}
+
+.no-results-founded {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  justify-self: center;
+  align-items: center;
+}
+
+.no-results-founded i {
+  color: var(--color-gray-light);
+  font-size: 58px;
+  margin-bottom: 24px;
+}

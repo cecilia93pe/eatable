@@ -1,0 +1,32 @@
+.historyContainer {
+  display: block;
+  background-color: white;
+  border-radius: 15px;
+  margin: 0 3rem;
+  padding: 1rem;
+}
+.historyContainer p {
+  padding: 0.5rem 0.5rem;
+  color: black;
+}
+.historyContainer .summary {
+  display: flex;
+  justify-content: space-between;
+}
+.iconDetails {
+  display: flex;
+  justify-content: end;
+  padding: 0 0.5rem;
+}
+.detailsField {
+  display: flex;
+  justify-content: space-between;
+}
+.line {
+  margin: 0rem 0.5rem;
+  border-bottom: 2.5px solid #f6f6f9;
+}
+
+.rotate i {
+  rotate: 180deg;
+}

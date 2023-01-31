@@ -1,0 +1,144 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  height: 40%;
+  display: grid;
+}
+
+.header .container {
+  width: 100%;
+  height: 40vh;
+  display: grid;
+  background-color: #fff;
+  grid-template-columns: auto;
+  grid-template-rows: auto 50px;
+  position: relative;
+  border-radius: 0 0 30px 30px;
+}
+
+.logo {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 15px;
+}
+
+.navigation {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navigation li {
+  border-bottom: 3px solid transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 0 41px 0;
+}
+
+.navigation li.item--active{
+  border-bottom: 3px solid var(--color-orange);
+}
+.navigation li:hover {
+  border-bottom: 3px solid orangered;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+}
+
+/* form */
+
+.container2 {
+  width: 100vw;
+  height: 60%;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 50px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.input-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field input {
+  width: 250px;
+  padding-bottom: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+}
+
+.field label {
+  font-size: 0.8rem;
+  padding-bottom: 5px;
+  color: #2227;
+  font-weight: 600;
+}
+
+.button-cont {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 60%));
+}
+
+button {
+  padding: 20px 0;
+  border-radius: 25px;
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 680px) {
+  .input-cont {
+    height: 80%;
+  }
+
+  .field input {
+    width: 600px;
+    font-size: 1.3rem;
+  }
+
+  .field label {
+    padding-bottom: 20px;
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="topbar">
+  <i class="fa-solid fa-angle-left" routerLink="/dish"></i>
+  <p>History</p>
+  <p class="empty">x</p>
+</div>
+
+<div class="history-cont">
+  <app-history-card
+    *ngFor="let order of orderList"
+    [date]="order.created_at"
+    address="{{order.delivery_address}}"
+    [order]="order"
+    [total]="order.total"
+  ></app-history-card>
+</div>
+
+<app-navbar></app-navbar>

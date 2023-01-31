@@ -1,0 +1,29 @@
+.topbar {
+  display: flex;
+  height: 50px;
+  top: 0;
+  width: 100%;
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.empty {
+  color: #f6f6f9;
+}
+
+.rotate i {
+  rotate: 180deg;
+}
+
+/* historycard */
+
+.history-cont {
+  width: 100%;
+  height: 85%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: scroll;
+  gap: 20px;
+}
