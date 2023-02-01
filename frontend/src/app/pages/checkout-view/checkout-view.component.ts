@@ -25,7 +25,7 @@ export class CheckoutViewComponent implements OnInit {
     private router: Router
   ) {
     this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
-    this.authService.getUser(this.userStorage._id)?.subscribe((res) => {
+    this.authService.getUser(this.userStorage._id)?.subscribe((res: any) => {
       console.log(res);
       this.user = res;
     });
@@ -48,8 +48,7 @@ export class CheckoutViewComponent implements OnInit {
       }
     } else {
       this.authService
-        .updateData(this.user, this.userStorage._id)?
-        .subscribe((res) => {
+        .updateData(this.user, this.userStorage._id)?.subscribe(() => {
           this.authService.getUser(this.userStorage._id).subscribe((json) => {
             this.user = json;
           });

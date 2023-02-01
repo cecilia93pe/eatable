@@ -18,7 +18,6 @@ export class HistoryViewComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private authService: AuthService,
     private orderService: OrderService,
     private dishService: DishService
     ) {

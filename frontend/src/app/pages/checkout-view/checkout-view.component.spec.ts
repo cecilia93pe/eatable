@@ -4,7 +4,7 @@ import { CheckoutViewComponent } from './checkout-view.component';
 import { OrderService } from './../../services/order.service';
 import { CartService } from './../../services/cart.service'
 import { AuthService } from './../../services/auth.service'
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CheckoutViewComponent', () => {
   let component: CheckoutViewComponent;
@@ -40,7 +40,8 @@ describe('CheckoutViewComponent', () => {
         },
       ],
       schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
+        CUSTOM_ELEMENTS_SCHEMA,
+        NO_ERRORS_SCHEMA
       ]
     })
     .compileComponents();

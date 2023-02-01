@@ -16,7 +16,7 @@ export class CartViewComponent implements OnInit {
     this.cartList = this.cartService.getCartItems();
     this.total = this.cartService.getTotal();
     console.log(this.cartList);
-    if (this.cartList.length === 0) {
+    if (this.cartList?.length === 0) {
       this.noSearch = false;
     } else {
       this.noSearch = true;
