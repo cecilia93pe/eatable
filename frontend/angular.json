@@ -93,5 +93,8 @@
   },
   "cli": {
     "analytics": false
-  }
+  },
+  "styles": [
+    "node_modules/ngx-toastr/toastr.css"
+  ]
 }

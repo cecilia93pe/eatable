@@ -63,11 +63,13 @@ export class CheckoutViewComponent implements OnInit {
       items: this.cartList,
       user_id: this.user._id
     }
-    if (this.cartAddress && this.cartList.length > 0) {
+    if (this.user.address && this.cartList.length > 0) {
       this.orderService.createOrder(sendData)?.subscribe((res: any) => {
         console.log(res)
       })
       this.router.navigate(['history'])
+    } else {
+      alert('Ingrese sus datos')
     }
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainViewComponent } from './pages/main-view/main-view.component';
@@ -41,6 +42,12 @@ import { HistoryCardComponent } from './pages/history-card/history-card.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      //timeOut: 10000,
+      //positionClass: 'toast-bottom-right',
+      //preventDuplicates: true,
+    }),
   ],
   providers: [
     {

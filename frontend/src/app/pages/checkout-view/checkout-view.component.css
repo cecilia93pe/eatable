@@ -33,6 +33,7 @@
   border: none;
   padding: 5px;
   outline-color: #fa4a0c;
+  display: block
 }
 
 .checkoutContainer p {

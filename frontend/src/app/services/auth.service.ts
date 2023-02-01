@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,11 @@ export class AuthService {
     address: '',
   };
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private toastr: ToastrService
+  ) {
     this.currentUser = JSON.parse(sessionStorage.getItem('user')!) || {};
     //localStorage.setItem('user', JSON.stringify(this.currentUser));
   }
@@ -27,20 +32,25 @@ export class AuthService {
   login(email: string, password: string) {
     this.http.post(`${this.apiUri}/login`, { email, password }).subscribe({
       next: (data: any) => {
-        sessionStorage.setItem('token', data.token);
-        this.getUser(data.id).subscribe((user) => {
-          console.log(user, 'user:::::::::::::::::');
-          this.currentUser = user;
-          console.log(this.currentUser);
+        console.log(data, 'data')
+        if (data.token) {
+          sessionStorage.setItem('token', data.token);
+          this.getUser(data.id).subscribe((user) => {
+            console.log(user, 'user:::::::::::::::::');
+            this.currentUser = user;
+            console.log(this.currentUser);
 
-          sessionStorage.setItem('user', JSON.stringify(user));
-          sessionStorage.setItem('cartAddress', JSON.stringify(user.address));
+            sessionStorage.setItem('user', JSON.stringify(user));
+            sessionStorage.setItem('cartAddress', JSON.stringify(user.address));
 
-          this.router.navigate(['/dish']);
-        });
+            this.router.navigate(['/dish']);
+          });
+        } else {
+          this.toastr.error(data);
+        }
       },
       error: (err: any) => {
-        console.log(err.error);
+        console.log(err, 'error');
       },
     });
   }

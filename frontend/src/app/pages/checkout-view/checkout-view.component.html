@@ -24,18 +24,21 @@
       [(ngModel)]="user.name"
       [disabled]="!isEditable"
       [value]="user.name"
+      placeholder="Nombre"
     />
     <input
       name="phone"
       [(ngModel)]="user.phone"
       [disabled]="!isEditable"
       [value]="user.phone"
+      placeholder="Phone"
     />
     <input
       name="address"
       [(ngModel)]="user.address"
       [disabled]="!isEditable"
       [value]="user.address"
+      placeholder="Address"
     />
   </form>
 </div>
