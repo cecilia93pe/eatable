@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Dish } from 'src/app/models/dish.model';
-import { DishService } from 'src/app/services/dish.service';
+import { DishService } from './../../services/dish.service';
 
 @Component({
   selector: 'app-dish-view',
@@ -41,7 +41,7 @@ export class DishViewComponent implements OnInit {
   ngOnInit() {
     this.cartNumberShop = JSON.parse(localStorage.getItem('cart')!) || [];
 
-    this.dishService.getDishes().subscribe({
+    this.dishService.getDishes()?.subscribe({
       next: (res: Dish[]) => {
         this.dishList = res;
         this.filteredDishes = res;

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from './../../services/cart.service';
 
-import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/models/user.model';
-import { OrderService } from 'src/app/services/order.service';
+import { AuthService } from './../../services/auth.service';
+import { OrderService } from './../../services/order.service';
 import { Router } from '@angular/router';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-checkout-view',
@@ -27,7 +25,7 @@ export class CheckoutViewComponent implements OnInit {
     private router: Router
   ) {
     this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
-    this.authService.getUser(this.userStorage._id).subscribe((res) => {
+    this.authService.getUser(this.userStorage._id)?.subscribe((res) => {
       console.log(res);
       this.user = res;
     });
@@ -35,8 +33,8 @@ export class CheckoutViewComponent implements OnInit {
     this.cartList = JSON.parse(localStorage.getItem('cart')!);
   }
 
-  ngOnInit() {
-    this.total = this.cartService.getTotal();
+  ngOnInit(){
+    this.total = this.cartService?.getTotal();
   }
 
   handleClickChange = () => {
@@ -50,7 +48,7 @@ export class CheckoutViewComponent implements OnInit {
       }
     } else {
       this.authService
-        .updateData(this.user, this.userStorage._id)
+        .updateData(this.user, this.userStorage._id)?
         .subscribe((res) => {
           this.authService.getUser(this.userStorage._id).subscribe((json) => {
             this.user = json;
@@ -58,19 +56,19 @@ export class CheckoutViewComponent implements OnInit {
         });
     }
     //event.target.attributes['contenteditable'].value = true
-  };
+  }
 
   handleClickOrder = () => {
     const sendData = {
       delivery_address: this.user.address,
       items: this.cartList,
-      user_id: this.user._id,
-    };
-    if (this.cartAddress && this.cartList.length > 0) {
-      this.orderService.createOrder(sendData).subscribe((res: any) => {
-        console.log(res);
-      });
-      this.router.navigate(['history']);
+      user_id: this.user._id
     }
-  };
+    if (this.cartAddress && this.cartList.length > 0) {
+      this.orderService.createOrder(sendData)?.subscribe((res: any) => {
+        console.log(res)
+      })
+      this.router.navigate(['history'])
+    }
+  }
 }

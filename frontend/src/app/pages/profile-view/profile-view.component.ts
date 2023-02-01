@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user.model';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './../../services/auth.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,23 +9,24 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProfileViewComponent {
   hidden: boolean = false;
-  user: any = {};
-  userStorage: any = null;
+  user: any = {}
+  userStorage: any = null
 
   profileForm = new FormGroup({
     name: new FormControl(''),
     phone: new FormControl(null),
-    address: new FormControl(''),
-  });
+    address: new FormControl('')
+  })
 
   constructor(private authService: AuthService) {
     this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
 
-    this.authService.getUser(this.userStorage._id).subscribe((res) => {
-      console.log(res);
-      this.user = res;
-    });
+   this.authService.getUser(this.userStorage._id)?.subscribe((res) =>{
+    console.log(res)
+    this.user = res
+   })
   }
+
 
   hide = () => {
     if (this.hidden) {
@@ -46,10 +46,10 @@ export class ProfileViewComponent {
       phone: Number(this.profileForm.value.phone),
       address: this.profileForm.value.address,
       email: this.userStorage.email,
-      password: this.userStorage.password,
-    };
-    console.log(send, 'send');
-    this.authService.updateData(send, this.userStorage._id).subscribe((res) => {
+      password: this.userStorage.password
+    }
+    console.log(send, 'send')
+    this.authService.updateData(send, this.userStorage._id)?.subscribe((res) => {
       this.authService.getUser(this.userStorage._id).subscribe((json) => {
         this.user = json;
         console.log(json);

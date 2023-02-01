@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
-import { Dish } from 'src/app/models/dish.model';
+import { CartService } from './../../services/cart.service';
+import { Dish } from './../../models/dish.model';
 @Component({
   selector: 'app-cart-view',
   templateUrl: './cart-view.component.html',

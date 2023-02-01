@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DishService } from 'src/app/services/dish.service';
-import { CartService } from 'src/app/services/cart.service';
-import { Dish } from 'src/app/models/dish.model';
+import { DishService } from './../../services/dish.service';
+import { CartService } from './../../services/cart.service';
+import { Dish } from './../../models/dish.model';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class DishDetailViewComponent implements OnInit {
     private dishService: DishService,
     private cartService: CartService
   ){}
-  
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.dishId = params.get('id')

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './../../services/auth.service';
 import { User } from 'src/app/models/user.model';
 
 
@@ -22,7 +21,6 @@ export class HistoryCardComponent implements OnInit {
   @Input() order: any = null
 
   constructor(
-    private cartService: CartService,
     private authService: AuthService
   ) {
     console.log(this.order, 'order')
@@ -32,7 +30,7 @@ export class HistoryCardComponent implements OnInit {
   }
   ngOnInit(){
     console.log(this.order, 'order')
-    this.itemList = this.order.items
+    this.itemList = this.order?.items
     //this.total = this.cartService.getTotal()
   }
 
