@@ -4,6 +4,7 @@ import { CartService } from './../../services/cart.service';
 import { AuthService } from './../../services/auth.service';
 import { OrderService } from './../../services/order.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout-view',
@@ -22,7 +23,9 @@ export class CheckoutViewComponent implements OnInit {
     private cartService: CartService,
     private authService: AuthService,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
+
   ) {
     this.userStorage = JSON.parse(sessionStorage.getItem('user')!) || {};
     this.authService.getUser(this.userStorage._id)?.subscribe((res: any) => {
@@ -65,6 +68,8 @@ export class CheckoutViewComponent implements OnInit {
     }
     if (this.user.address && this.cartList.length > 0) {
       this.orderService.createOrder(sendData)?.subscribe((res: any) => {
+        this.toastr.success('Tu orden fue realizado');
+
         console.log(res)
       })
       this.router.navigate(['history'])

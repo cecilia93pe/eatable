@@ -5,6 +5,7 @@ import { OrderService } from './../../services/order.service';
 import { CartService } from './../../services/cart.service'
 import { AuthService } from './../../services/auth.service'
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 describe('CheckoutViewComponent', () => {
   let component: CheckoutViewComponent;
@@ -12,6 +13,7 @@ describe('CheckoutViewComponent', () => {
   let fakeCartServiceMock: any
   let fakeOrderServiceMock: any
   let fakeAuthServiceMock: any
+  let fakeToastServiceMock: any
 
   beforeEach(async () => {
     fakeCartServiceMock = {
@@ -22,6 +24,9 @@ describe('CheckoutViewComponent', () => {
     }
     fakeAuthServiceMock = {
       getUser: jest.fn(),
+    }
+    fakeToastServiceMock = {
+      success: jest.fn(),
     }
     await TestBed.configureTestingModule({
       declarations: [ CheckoutViewComponent ],
@@ -38,6 +43,10 @@ describe('CheckoutViewComponent', () => {
           provide: AuthService,
           useValue: fakeAuthServiceMock
         },
+        {
+          provide: ToastrService,
+          useValue: fakeToastServiceMock
+        }
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
