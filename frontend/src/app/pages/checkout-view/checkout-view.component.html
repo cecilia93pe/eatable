@@ -9,7 +9,12 @@
 
 <div class="subtitle">
   <p>Address details</p>
-  <p style="color: #fa4a0c" (click)="handleClickChange()">Change</p>
+  <p
+    [ngClass]="isEditable ? 'change--orange' : 'change--blue'"
+    (click)="handleClickChange()"
+  >
+    Change
+  </p>
 </div>
 
 <div class="checkoutContainer">
